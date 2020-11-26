@@ -2,6 +2,19 @@
  * Project 4 - OOP Game App
  * Phrase.js */
 
+
+class Phrase {
+    constructor(phrase) {
+        this.phrase = phrase;
+    }
+    addPhraseToDisplay() {
+    }
+    checkLetter() {
+    }
+    showMatchedLetter() {
+    }
+}
+
 The class should include a constructor that receives a phrase parameter and initializes the following properties:
 
 1. phrase: this is the actual phrase the Phrase object is representing.This property should be set to the phrase parameter, but converted to all lower case.
