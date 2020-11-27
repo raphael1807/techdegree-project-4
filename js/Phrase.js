@@ -5,50 +5,68 @@
 
 class Phrase {
     constructor(phrase) {
-        this.phrase = phrase;
+        this.phrase = phrase.toLowerCase();
     }
+
+    /**
+* Display phrase on game board
+*/
     addPhraseToDisplay() {
+        for (var i = 0; i < this.phrase.length; i++) {
+
+            // Select ul in which to add li letters of the phrase
+            const divPhraseUl = document.querySelector('div#phrase ul');
+
+            // If character of the phrase is not a space
+            if (this.phrase.charAt(i) !== " ") {
+                var liLetter = document.createElement("li");
+                liLetter.classList = `hide letter ${this.phrase.charAt(i)}`;
+                liLetter.textContent = `${this.phrase.charAt(i)}`;
+                divPhraseUl.appendChild(liLetter);
+            }
+            // If character of the phrase is a space 
+            else {
+                var liSpace = document.createElement("li");
+                liSpace.classList = "hide space";
+                liSpace.textContent = " ";
+                divPhraseUl.appendChild(liSpace);
+            }
+        }
     }
-    checkLetter() {
+
+    /**
+* Checks if passed letter is in phrase
+* @param (string) letter - Letter to check
+*/
+    checkLetter(letter) {
+        const clickedkeyTextcontent = letter.textContent;
+        for (let i = 0; i < lettersOfThePhrase.length; i++) {
+            if (clickedkeyTextcontent == lettersOfThePhrase[i].textContent) {
+                return true;
+            }
+            else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
+                game.missed++;
+                return false;
+            }
+
+        }
     }
-    showMatchedLetter() {
+
+
+    /**
+    * Displays passed letter on screen after a match is found
+    * @param (string) letter - Letter to display
+    */
+    showMatchedLetter(letter) {
+        if (checkLetter) {
+            lettersOfThePhrase[i].classList = `show letter ${lettersOfThePhrase[i].textContent}`;
+            letter.classList = 'chosen';
+        }
+        // else if (!checkLetter)
+        else {
+            letter.classList = 'wrong';
+        }
     }
 }
 
-The class should include a constructor that receives a phrase parameter and initializes the following properties:
 
-1. phrase: this is the actual phrase the Phrase object is representing.This property should be set to the phrase parameter, but converted to all lower case.
-
-The class should also have these methods:
-
-1. addPhraseToDisplay(): this adds letter placeholders to the display when the game starts.
-Each letter is presented by an empty box, one li element for each letter.
-See the example_phrase_html.txt file for an example of what the rendered HTML for a phrase should look like when the game starts, including any id or class attributes needed.When the player correctly guesses a letter, the empty box is replaced with the matched letter(see the showMatchedLetter() method below).
-Make sure the phrase displayed on the screen uses the letter CSS class for letters and the space CSS class for spaces.
-
-2. checkLetter(): checks to see if the letter selected by the player matches a letter in the phrase.
-
-3. showMatchedLetter(): reveals the letter(s) on the board that matches the player's selection. To reveal the matching letter(s), select all of the letter DOM elements that have a CSS class name that matches the selected letter and replace each selected element's hide CSS class with the show CSS class.
-
-
-
-class Patron {
-    constructor(name, email) {
-        this.name = name;
-        this.email = email;
-        this.currentBook = null;
-        this.balance = 0;
-    }
-
-    checkOut(book) {
-        this.currentBook = book;
-        book.out = true;
-        book.patron = this;
-    }
-
-    returnBook(book) {
-        this.currentBook = null;
-        book.out = false;
-        book.patron = null;
-    }
-}
