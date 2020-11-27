@@ -34,3 +34,12 @@ else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
         var alreadyPlayed = true;
     }
     clickedKey.classList = 'wrong';
+
+
+    else if ((clickedkeyTextcontent !== game.arrayofcharactersoftheActivephrase[i])) {
+        console.log(`NO FIT`);
+        console.log(game.arrayofcharactersoftheActivephrase[i]);
+        game.missed++;
+        console.log(`${game.missed} missed`);
+        return false;
+    }

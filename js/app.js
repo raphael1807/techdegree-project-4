@@ -19,10 +19,9 @@ startButton.addEventListener("click", function () {
 * Handles onscreen keyboard button clicks
 * @param (HTMLButtonElement) button - The clicked button element
 */
-
 const lettersOfThePhrase = document.querySelectorAll('div#phrase ul li');
 const keyrowKeys = document.querySelector('div#qwerty');
 keyrowKeys.addEventListener("click", (e) => {
     const clickedKey = e.target;
-    if (clickedKey.tagName === "BUTTON") { game.handleInteraction(clickedKey); }
+    if (clickedKey.tagName === "BUTTON") { console.log(clickedKey); game.handleInteraction(clickedKey); }
 }); 

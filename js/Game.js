@@ -9,18 +9,7 @@ class Game {
         // 1. missed: used to track the number of missed guesses by the player.The initial value is 0, since no guesses have been made at the start of the game.
         this.missed = 0;
         // 2. phrases: an array of five Phrase objects to use with the game.A phrase should only include letters and spaces— no numbers, punctuation or other special characters.
-        this.phrases = this.createPhrases();
-        // 3. activePhrase: This is the Phrase object that’s currently in play.The initial value is null.Within the startGame() method, this property will be set to the Phrase object returned from a call to the getRandomPhrase() method.
-        this.activePhrase = null;
-    }
-
-
-    /**
-* Creates phrases for use in game
-* @return {array} An array of phrases that could be used in the game
-*/
-    createPhrases() {
-        return [{
+        this.phrases = [{
             phrase: "I love MTL"
         }, {
             phrase: "I love NY"
@@ -30,8 +19,12 @@ class Game {
             phrase: "I love SF"
         }, {
             phrase: "I love NEW ORLEANS"
-        }]
-    };
+        }];
+        // 3. activePhrase: This is the Phrase object that’s currently in play.The initial value is null.Within the startGame() method, this property will be set to the Phrase object returned from a call to the getRandomPhrase() method.
+        this.activePhrase = null;
+        this.arrayofcharactersoftheActivephrase = [];
+        this.correct = 0;
+    }
 
     /**
 * Begins game by selecting a random phrase and displaying it to user
@@ -39,10 +32,10 @@ class Game {
     startGame() {
         document.getElementById('overlay').style.display = "none";
         //  Select a Phrase object from the Game object’s array of phrases,
-        const randomPhrase = game.getRandomPhrase();
-        const phrase = new Phrase(randomPhrase.phrase);
-        phrase.addPhraseToDisplay();
-        this.activePhrase = phrase;
+        // const randomPhrase = ;
+        this.activePhrase = new Phrase(this.getRandomPhrase().phrase);
+        console.log(this.activePhrase);
+        this.activePhrase.addPhraseToDisplay();
     };
 
     /**
@@ -57,12 +50,28 @@ class Game {
 
 
     handleInteraction(letter) {
-        game.activePhrase.phrase.checkLetter(letter);
-        game.activePhrase.phrase.showMatchedLetter(letter);
+        // console.log('fuck you');
+        // console.log(letter);
+        this.activePhrase.checkLetter(letter);
+        this.activePhrase.showMatchedLetter(letter);
         game.checkForWin();
         game.removeLife();
         game.gameOver();
     };
+
+    /**
+  * Checks for winning move
+  * @return {boolean} True if game has been won, false if game wasn't
+  won
+  */
+    checkForWin() {
+        if (this.arrayofcharactersoftheActivephrase.length == this.correct) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
     /**
   * Increases the value of the missed property
@@ -76,29 +85,11 @@ class Game {
         };
     }
 
-
-    /**
-  * Checks for winning move
-  * @return {boolean} True if game has been won, false if game wasn't
-  won
-  */
-    checkForWin() {
-        const phraseCharacters = document.querySelectorAll('div#phrase ul li');
-        if (phraseCharacters.textContent !== "") {
-
-
-            // "Je pense que je dois convertir le string en string et trouver le nombre 
-            // de caractères excluant les espaces"
-        }
-    }
-
-
     /**
 * Displays game over message
 * @param {boolean} gameWon - Whether or not the user won the game
 */
     gameOver(gameWon) {
-        // Select ul in which to add li letters of the phrase
         if (this.missed == 5) {
             document.getElementById('overlay').style.display = "display";
             document.getElementById('overlay').style.backgroundColor = "#F37963";
