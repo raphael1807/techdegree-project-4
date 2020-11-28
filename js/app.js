@@ -23,27 +23,18 @@ const lettersOfThePhrase = document.querySelectorAll('div#phrase ul li');
 const keyrowKeys = document.querySelector('div#qwerty');
 keyrowKeys.addEventListener("click", (e) => {
     const clickedKey = e.target;
-    if (clickedKey.tagName === "BUTTON") { game.handleInteraction(clickedKey); }
+    console.log(clickedKey);
+    console.log(typeof clickedKey);
+    if (clickedKey.tagName === "BUTTON") { game.handleInteraction(clickedKey) }
 });
 
-/*
-* Handles onscreen keyboard keydown events
-* @param (HTMLButtonElement) button - The clicked button element
-*/
-document.addEventListener("keydown", (e) => {
-    const keyDowned = e.target;
-    console.log(keyDowned);
-});
+// Inspired by https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
 
-/*
-* Handles onscreen keyboard keyup events
-* @param (HTMLButtonElement) button - The clicked button element
-*/
-document.addEventListener("keyup", (e) => {
-    const keyDowned = e.target;
-    console.log(keyDowned);
-});
+function myKeyPress(e) {
+    const keynum = e.keyCode;
+    const stringFromKeyNum = String.fromCharCode(keynum);
+    const htmlElement = document.querySelectorAll(".key").textContent = `${stringFromKeyNum}`;
+    const stringtoHtml = `<button class="key">${stringFromKeyNum}</button>`;
+    game.handleInteraction(stringFromKeyNum);
 
-
-
-
+}

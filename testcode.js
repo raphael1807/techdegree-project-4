@@ -107,3 +107,26 @@ else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
             for (let i = 0; i < matchedInthePhrase.length; i++)
                 matchedInthePhrase[i].classList = `show letter ${clickedkeyTextcontent}`;
         }
+
+
+
+
+
+
+// /*
+// * Handles onscreen keyboard keydown events
+// * @param (HTMLButtonElement) button - The clicked button element
+// */
+// document.addEventListener("keydown", (e) => {
+//     const keyDowned = e.target;
+//     console.log(keyDowned);
+// });
+
+// /*
+// * Handles onscreen keyboard keyup events
+// * @param (HTMLButtonElement) button - The clicked button element
+// */
+// document.addEventListener("keyup", (e) => {
+//     const keyDowned = e.target;
+//     console.log(keyDowned);
+// });
