@@ -43,3 +43,67 @@ else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
         console.log(`${game.missed} missed`);
         return false;
     }
+
+
+
+
+    // else if (!checkLetter)
+    else {
+        letter.classList = 'wrong';
+
+
+
+        const restartKeys = document.querySelectorAll('div.keyrow button');
+
+
+
+
+        showMatchedLetter(letter) {
+            const clickedkeyTextcontent = letter.textContent;
+            const matchedInthePhrase = document.getElementsByClassName(`hide letter ${clickedkeyTextcontent}`);
+            console.log(matchedInthePhrase);
+            const numLoops = matchedInthePhrase.length;
+
+            for (let i = 0; i < matchedInthePhrase.length; i++)
+                matchedInthePhrase[i].classList.remove(`hide letter ${clickedkeyTextcontent}`) = `show letter ${clickedkeyTextcontent}`;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        showMatchedLetter(letter) {
+            const clickedkeyTextcontent = letter.textContent;
+            const matchedInthePhrase = document.getElementsByClassName(`.hide.letter.${clickedkeyTextcontent}`);
+            console.log(matchedInthePhrase);
+            const numLoops = matchedInthePhrase.length;
+
+            for (let i = 0; i < matchedInthePhrase.length; i++)
+                matchedInthePhrase[i].classList.remove("hide");
+            matchedInthePhrase[i].classList.add("show");
+        }
+
+
+        //     `showMatchedLetter()`: Reveals the letter(s) on the board that matches the
+        // player's selection. To reveal the matching letter(s), select all of the letter DOM
+        // elements that have a CSS class name that matches the selected letter and
+        // replace each selected element's `hide` CSS class with the `show` CSS class.
+        /**
+        * Displays passed letter on screen after a match is found
+        * @param (string) letter - Letter to display
+        */
+        showMatchedLetter(letter) {
+            const clickedkeyTextcontent = letter.textContent;
+            const matchedInthePhrase = document.getElementsByClassName(`hide letter ${clickedkeyTextcontent}`);
+
+            const numLoops = matchedInthePhrase.length;
+
+            for (let i = 0; i < matchedInthePhrase.length; i++)
+                matchedInthePhrase[i].classList = `show letter ${clickedkeyTextcontent}`;
+        }

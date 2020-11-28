@@ -23,5 +23,27 @@ const lettersOfThePhrase = document.querySelectorAll('div#phrase ul li');
 const keyrowKeys = document.querySelector('div#qwerty');
 keyrowKeys.addEventListener("click", (e) => {
     const clickedKey = e.target;
-    if (clickedKey.tagName === "BUTTON") { console.log(clickedKey); game.handleInteraction(clickedKey); }
-}); 
+    if (clickedKey.tagName === "BUTTON") { game.handleInteraction(clickedKey); }
+});
+
+/*
+* Handles onscreen keyboard keydown events
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+document.addEventListener("keydown", (e) => {
+    const keyDowned = e.target;
+    console.log(keyDowned);
+});
+
+/*
+* Handles onscreen keyboard keyup events
+* @param (HTMLButtonElement) button - The clicked button element
+*/
+document.addEventListener("keyup", (e) => {
+    const keyDowned = e.target;
+    console.log(keyDowned);
+});
+
+
+
+

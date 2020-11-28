@@ -21,7 +21,6 @@ class Phrase {
                 var liLetter = document.createElement("li");
                 liLetter.classList = `hide letter ${this.phrase.charAt(i)}`;
                 liLetter.textContent = `${this.phrase.charAt(i)}`;
-                game.arrayofcharactersoftheActivephrase.push(`${this.phrase.charAt(i)}`);
                 divPhraseUl.appendChild(liLetter);
             }
             // If character of the phrase is a space 
@@ -41,24 +40,12 @@ class Phrase {
 * @param (string) letter - Letter to check
 */
     checkLetter(letter) {
-        console.log('fanculette');
         const clickedkeyTextcontent = letter.textContent;
-        console.log(clickedkeyTextcontent);
-        console.log(typeof clickedkeyTextcontent);
-        console.log(typeof game.arrayofcharactersoftheActivephrase[1]);
-        for (let i = 0; i < game.arrayofcharactersoftheActivephrase.length; i++) {
-            if (clickedkeyTextcontent == game.arrayofcharactersoftheActivephrase[i]) {
-                game.correct++;
-                console.log(`${game.missed} correct`);
-                return true;
-            }
-            else {
-                console.log(`NO FIT`);
-                console.log(game.arrayofcharactersoftheActivephrase[i]);
-                game.missed++;
-                console.log(`${game.missed} missed`);
-                return false;
-            }
+        if (this.phrase.includes(clickedkeyTextcontent)) {
+            return true;
+        }
+        else {
+            return false;
 
         }
     }
@@ -72,15 +59,17 @@ class Phrase {
     * @param (string) letter - Letter to display
     */
     showMatchedLetter(letter) {
-        if (checkLetter) {
-            lettersOfThePhrase[i].classList = `show letter ${lettersOfThePhrase[i].textContent}`;
-            letter.classList = 'chosen';
+        const clickedkeyTextcontent = letter.textContent;
+        const matchedInthePhrase = document.querySelectorAll('li.hide.letter');
+        const numLoops = matchedInthePhrase.length;
+
+        for (let i = 0; i < matchedInthePhrase.length; i++) {
+            if (matchedInthePhrase[i].textContent == clickedkeyTextcontent)
+                matchedInthePhrase[i].classList = `show letter ${clickedkeyTextcontent}`;
         }
-        // else if (!checkLetter)
-        else {
-            letter.classList = 'wrong';
-        }
+
     }
 }
+
 
 
