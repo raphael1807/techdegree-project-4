@@ -22,7 +22,7 @@ class Game {
         }];
         // 3. activePhrase: This is the Phrase object that’s currently in play.The initial value is null.Within the startGame() method, this property will be set to the Phrase object returned from a call to the getRandomPhrase() method.
         this.activePhrase = null;
-    };
+    }
 
     /**
 * Begins game by selecting a random phrase and displaying it to user
@@ -54,7 +54,7 @@ class Game {
         //  Select a Phrase object from the Game object’s array of phrases,
         this.activePhrase = new Phrase(this.getRandomPhrase().phrase);
         this.activePhrase.addPhraseToDisplay();
-    };
+    }
 
     /**
     * Selects random phrase from phrases property
@@ -64,7 +64,7 @@ class Game {
         const randomNumber = Math.random() * (maxPhrasesIndex - minPhrasesIndex) + minPhrasesIndex;
         const randomberNumberFloored = Math.floor(randomNumber);
         return this.phrases[randomberNumberFloored];
-    };
+    }
 
     handleInteraction(letter) {
         if (this.activePhrase.checkLetter(letter) == true) {
@@ -79,7 +79,7 @@ class Game {
             letter.setAttribute("disabled", "");
             game.removeLife();
         }
-    };
+    }
 
     /**
     * Checks for winning move
