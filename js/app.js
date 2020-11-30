@@ -23,8 +23,6 @@ const lettersOfThePhrase = document.querySelectorAll('div#phrase ul li');
 const keyrowKeys = document.querySelector('div#qwerty');
 keyrowKeys.addEventListener("click", (e) => {
     const clickedKey = e.target;
-    console.log(clickedKey);
-    console.log(typeof clickedKey);
     if (clickedKey.tagName === "BUTTON") { game.handleInteraction(clickedKey) }
 });
 
@@ -33,8 +31,13 @@ keyrowKeys.addEventListener("click", (e) => {
 function myKeyPress(e) {
     const keynum = e.keyCode;
     const stringFromKeyNum = String.fromCharCode(keynum);
-    const htmlElement = document.querySelectorAll(".key").textContent = `${stringFromKeyNum}`;
-    const stringtoHtml = `<button class="key">${stringFromKeyNum}</button>`;
-    game.handleInteraction(stringFromKeyNum);
-
+    console.log(stringFromKeyNum);
+    console.log(typeof stringFromKeyNum);
+    const htmlElement = document.getElementById(`${stringFromKeyNum}`);
+    if (/[a-zA-Z]/.test(stringFromKeyNum)) {
+        game.handleInteraction(htmlElement);
+    }
+    else {
+        console.log('Number bello');
+    }
 }

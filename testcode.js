@@ -109,6 +109,19 @@ else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
         }
 
 
+        // Inspired by https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
+
+        function myKeyPress(e) {
+            const keynum = e.keyCode;
+            const stringFromKeyNum = String.fromCharCode(keynum);
+            const htmlElement = document.querySelectorAll(".key").textContent = `${stringFromKeyNum}`;
+            const stringtoHtml = `<button class="key">${stringFromKeyNum}</button>`;
+            game.handleInteraction(stringFromKeyNum);
+        }
+
+
+
+
 
 
 

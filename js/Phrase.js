@@ -67,7 +67,6 @@ class Phrase {
             if (matchedInthePhrase[i].textContent == clickedkeyTextcontent)
                 matchedInthePhrase[i].classList = `show letter ${clickedkeyTextcontent}`;
         }
-
     }
 }
 

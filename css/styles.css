@@ -1,5 +1,6 @@
 /* Main styles */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700&Roboto:300");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&display=swap");
 
 /* Variables */
 
@@ -20,7 +21,7 @@
 
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Work Sans", sans-serif;
 }
 
 body {
@@ -109,6 +110,7 @@ button {
 }
 
 .show {
+  font-family: "PT Serif", serif;
   color: #fff;
   background-color: #4ac0d5;
   font-size: 20px;
@@ -177,7 +179,7 @@ button {
 }
 
 .start {
-  background-color: #3a3f58;
+  background-color: #000000;
 }
 
 .start a {

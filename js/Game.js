@@ -50,7 +50,6 @@ class Game {
 
         // Hides start screen overlay
         document.getElementById('overlay').style.display = "none";
-
         //  Select a Phrase object from the Game object’s array of phrases,
         this.activePhrase = new Phrase(this.getRandomPhrase().phrase);
         this.activePhrase.addPhraseToDisplay();
@@ -66,7 +65,12 @@ class Game {
         return this.phrases[randomberNumberFloored];
     }
 
+    /**
+* Handles onscreen keyboard button clicks
+* @param (HTMLButtonElement) button - The clicked button element
+*/
     handleInteraction(letter) {
+        // If letter clicked or pressed is in the phrase
         if (this.activePhrase.checkLetter(letter) == true) {
             letter.classList = 'chosen';
             letter.setAttribute("disabled", "");
