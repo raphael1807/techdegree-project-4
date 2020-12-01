@@ -70,7 +70,7 @@ class Game {
 * @param (HTMLButtonElement) button - The clicked button element
 */
     handleInteraction(letter) {
-        console.log('called');
+        console.log('handleInteraction called');
         // If letter clicked or pressed is in the phrase
         if (this.activePhrase.checkLetter(letter) == true) {
             letter.classList = 'chosen';
