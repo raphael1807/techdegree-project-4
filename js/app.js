@@ -38,7 +38,6 @@ function myKeyPress(e) {
         for (let i = 0; i < document.querySelectorAll('div.keyrow button').length; i++) {
             if (document.querySelectorAll('div.keyrow button')[i].textContent == stringFromKeyNum) {
                 document.querySelectorAll('div.keyrow button')[i].click();
-                // game.handleInteraction(keyboardToclicked);
             }
         }
     }
