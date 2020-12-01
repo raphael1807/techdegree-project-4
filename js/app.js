@@ -35,9 +35,14 @@ function myKeyPress(e) {
     console.log(typeof stringFromKeyNum);
     const htmlElement = document.getElementById(`${stringFromKeyNum}`);
     if (/[a-zA-Z]/.test(stringFromKeyNum)) {
-        game.handleInteraction(htmlElement);
+        for (let i = 0; i < document.querySelectorAll('div.keyrow button').length; i++) {
+            if (document.querySelectorAll('div.keyrow button')[i].textContent == stringFromKeyNum) {
+                document.querySelectorAll('div.keyrow button')[i].click();
+                // game.handleInteraction(keyboardToclicked);
+            }
+        }
     }
     else {
-        console.log('Number bello');
+        console.log('Not a number bello');
     }
 }

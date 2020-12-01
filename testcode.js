@@ -123,23 +123,18 @@ else if ((clickedkeyTextcontent !== lettersOfThePhrase[i].textContent)) {
 
 
 
+        // Inspired by https://stackoverflow.com/questions/1846599/how-to-find-out-what-character-key-is-pressed
 
-
-
-// /*
-// * Handles onscreen keyboard keydown events
-// * @param (HTMLButtonElement) button - The clicked button element
-// */
-// document.addEventListener("keydown", (e) => {
-//     const keyDowned = e.target;
-//     console.log(keyDowned);
-// });
-
-// /*
-// * Handles onscreen keyboard keyup events
-// * @param (HTMLButtonElement) button - The clicked button element
-// */
-// document.addEventListener("keyup", (e) => {
-//     const keyDowned = e.target;
-//     console.log(keyDowned);
-// });
+        function myKeyPress(e) {
+            const keynum = e.keyCode;
+            const stringFromKeyNum = String.fromCharCode(keynum);
+            console.log(stringFromKeyNum);
+            console.log(typeof stringFromKeyNum);
+            const htmlElement = document.getElementById(`${stringFromKeyNum}`);
+            if (/[a-zA-Z]/.test(stringFromKeyNum)) {
+                game.handleInteraction(htmlElement.click());
+            }
+            else {
+                console.log('Number bello');
+            }
+        }
